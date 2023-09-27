@@ -1,13 +1,8 @@
 package com.example.pessoas;
 
 public class Profissional extends Pessoa {
-    String cargo;
-    String cnpj;
-
-    public Profissional(String nome, String cargo) {
-        super(nome);
-        this.cargo = cargo;
-    }
+    private String cargo;
+    private String cnpj;
 
     public Profissional(String nome, String cargo, String cnpj) {
         super(nome);
@@ -35,6 +30,12 @@ public class Profissional extends Pessoa {
 
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
+    }
+
+    @Override
+    public String toString() {
+        return "Profissional [cargo=" + cargo + ", cnpj=" + cnpj + ", getNome()=" + getNome() + ", getIdade()="
+                + getIdade() + ", getCpf()=" + getCpf() + "]";
     }
 
 }

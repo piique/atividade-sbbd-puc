@@ -9,14 +9,21 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Minicurso {
-    LocalDate data;
-    LocalTime horaInicio;
-    LocalTime horaFim;
-    Sala sala;
-    Profissional profissional;
-    ArrayList<Pessoa> participantes;
+    private int id;
+    private LocalDate data;
+    private LocalTime horaInicio;
+    private LocalTime horaFim;
+    private Sala sala;
+    private Profissional profissional;
+    private ArrayList<Pessoa> participantes;
+
+    private static int ultimoId;
+    static {
+        ultimoId = 0;
+    }
 
     public Minicurso(LocalDate data, LocalTime horaInicio, LocalTime horaFim, Sala sala, Profissional profissional) {
+        this.id = getNextId();
         this.data = data;
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
@@ -26,12 +33,21 @@ public class Minicurso {
 
     public Minicurso(LocalDate data, LocalTime horaInicio, LocalTime horaFim, Sala sala, Profissional profissional,
             ArrayList<Pessoa> participantes) {
+        this.id = getNextId();
         this.data = data;
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
         this.sala = sala;
         this.profissional = profissional;
         this.participantes = participantes;
+    }
+
+    private static int getNextId() {
+        return ++ultimoId;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public LocalDate getData() {
@@ -80,6 +96,12 @@ public class Minicurso {
 
     public void setParticipantes(ArrayList<Pessoa> participantes) {
         this.participantes = participantes;
+    }
+
+    @Override
+    public String toString() {
+        return "Minicurso [data=" + data + ", horaInicio=" + horaInicio + ", horaFim=" + horaFim + ", id=" + id
+                + ", participantes=" + participantes + ", profissional=" + profissional + ", sala=" + sala + "]";
     }
 
 }

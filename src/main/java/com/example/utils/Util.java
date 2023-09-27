@@ -46,8 +46,10 @@ public class Util {
         }
     }
 
-    public static void printMenuTitle(String title) {
-        clearTerminal();
+    public static void printMenuTitle(String title, boolean clearTerminal) {
+        if (clearTerminal)
+            clearTerminal();
+
         printDynamicLine();
         int totalWidth = 80;
         int paddingSize = (totalWidth - title.length()) / 2;
@@ -65,6 +67,10 @@ public class Util {
         }
         System.out.println(sb.toString());
         printDynamicLine();
+    }
+
+    public static void printMenuTitle(String title) {
+        printMenuTitle(title, true);
     }
 
 }

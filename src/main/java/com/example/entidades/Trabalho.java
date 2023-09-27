@@ -1,14 +1,15 @@
 package com.example.entidades;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.example.pessoas.Estudante;
 import com.example.pessoas.Professor;
 
 public class Trabalho {
-    int id;
-    String titulo;
-    String resumo;
+    private int id;
+    private String titulo;
+    private String resumo;
 
     ArrayList<Estudante> estudantes;
     Professor professor;
@@ -59,6 +60,12 @@ public class Trabalho {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
+    }
+
+    @Override
+    public String toString() {
+        return "Trabalho [id=" + id + ", titulo=" + titulo + ", resumo=" + resumo + ", estudantes=" + estudantes
+                + ", professor=" + professor + "]";
     }
 
 }

@@ -7,16 +7,23 @@ import java.util.ArrayList;
 import com.example.pessoas.Professor;
 
 public class SessaoTecnica {
-    LocalDate data;
-    LocalTime horaInicio;
-    LocalTime horaFim;
-    Professor professor;
-    Sala sala;
+    private int id;
+    private LocalDate data;
+    private LocalTime horaInicio;
+    private LocalTime horaFim;
+    private Professor professor;
+    private Sala sala;
+
+    private static int ultimoId;
+    static {
+        ultimoId = 0;
+    }
 
     ArrayList<Apresentacao> apresentacoes;
 
     public SessaoTecnica(LocalDate data, LocalTime horaInicio, LocalTime horaFim, Professor professor, Sala sala,
             Apresentacao apresentacoes) {
+        this.id = getNextId();
         this.data = data;
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
@@ -28,12 +35,21 @@ public class SessaoTecnica {
 
     public SessaoTecnica(LocalDate data, LocalTime horaInicio, LocalTime horaFim, Professor professor, Sala sala,
             ArrayList<Apresentacao> apresentacoes) {
+        this.id = getNextId();
         this.data = data;
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
         this.professor = professor;
         this.sala = sala;
         this.apresentacoes = apresentacoes;
+    }
+
+    private static int getNextId() {
+        return ++ultimoId;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public LocalDate getData() {
@@ -86,6 +102,12 @@ public class SessaoTecnica {
 
     public void addApresentacao(Apresentacao apresentacao) {
         this.apresentacoes.add(apresentacao);
+    }
+
+    @Override
+    public String toString() {
+        return "SessaoTecnica [apresentacoes=" + apresentacoes + ", data=" + data + ", horaFim=" + horaFim
+                + ", horaInicio=" + horaInicio + ", id=" + id + ", professor=" + professor + ", sala=" + sala + "]";
     }
 
 }

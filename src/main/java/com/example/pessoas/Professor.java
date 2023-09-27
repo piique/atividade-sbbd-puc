@@ -1,7 +1,7 @@
 package com.example.pessoas;
 
 public class Professor extends Pessoa {
-    public Integer codigoProfessor;
+    private Integer codigoProfessor;
 
     public Professor(String nome, Integer codigoProfessor) {
         super(nome);
@@ -19,6 +19,12 @@ public class Professor extends Pessoa {
 
     public void setCodigoProfessor(Integer codigoProfessor) {
         this.codigoProfessor = codigoProfessor;
+    }
+
+    @Override
+    public String toString() {
+        return "Professor [codigoProfessor=" + codigoProfessor + ", getNome()=" + getNome() + ", getIdade()="
+                + getIdade() + ", getCpf()=" + getCpf() + "]";
     }
 
 }

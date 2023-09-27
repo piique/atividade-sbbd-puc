@@ -1,7 +1,7 @@
 package com.example.pessoas;
 
 public class Estudante extends Pessoa {
-    public String matricula;
+    private String matricula;
 
     public Estudante(String nome, String matricula) {
         super(nome);
@@ -15,5 +15,11 @@ public class Estudante extends Pessoa {
 
     public String getMatricula() {
         return this.matricula;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudante [matricula=" + matricula + ", getNome()=" + getNome() + ", getIdade()=" + getIdade()
+                + ", getCpf()=" + getCpf() + "]";
     }
 }
